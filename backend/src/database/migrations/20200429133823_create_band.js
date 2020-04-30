@@ -5,7 +5,7 @@ exports.up = function(knex) {
         table.string('name').notNullable();
         table.string('style').notNullable();
         table.string('bio').notNullable();
-        //tabela com referencia a tabela musician com email, whatsapp e cidade
+        //tabela com referencia a tabela musician com email, whatsapp e cidad
     });
 };
 
