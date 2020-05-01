@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('musician', function(table){
-        table.increments();
+        table.increments('musician_id').primary();
         table.string('name').notNullable();
         table.integer('age').notNullable();
         table.string('email').notNullable();
