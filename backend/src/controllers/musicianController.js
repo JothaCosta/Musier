@@ -33,5 +33,17 @@ module.exports = {
     
         return response.json({name, age, email, city, whatsapp, instrument, password, bio });
 
+    },
+    
+
+    async update (request,response){
+        const {email, city, whatsapp, instrument, bio} = request.body
+        const { musician_id } = request.params
+
+        await connection('musician')
+        .update({email, city, whatsapp, instrument, bio})
+        .where({ musician_id })
+
+        return response.send()
     }
 }

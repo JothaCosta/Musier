@@ -14,8 +14,13 @@ routes.post('/session', sessionController.create);
 // routes musician
 routes.get('/musician', musicianController.list); 
 routes.post('/musician' ,musicianController.create);
+routes.put('/musician/:musician_id' ,musicianController.update);
 
 //routes band
+routes.get('/band', bandController.list);
+routes.post('/band' ,bandController.create);
+routes.put('/band/:id' ,bandController.update);
+routes.delete('/band/:id' ,bandController.delete);
 
 //routes event
 routes.get('/event', eventController.list);

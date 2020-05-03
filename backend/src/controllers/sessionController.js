@@ -6,7 +6,7 @@ module.exports = {
 
         const musician = await connection('musician')
             .where('email', email && 'password', password)
-            .select('name')
+            .select('musician_id')
             .first();
 
         if (!musician){
