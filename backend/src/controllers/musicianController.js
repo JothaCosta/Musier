@@ -44,6 +44,8 @@ module.exports = {
         .update({email, city, whatsapp, instrument, bio})
         .where({ musician_id })
 
+        // fazer com que apenas o musicos possa alterar seu perfil, se ja nao foi isso
+
         return response.send()
     }
 }
