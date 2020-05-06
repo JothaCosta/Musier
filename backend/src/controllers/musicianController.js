@@ -37,15 +37,23 @@ module.exports = {
     
 
     async update (request,response){
-        const {email, city, whatsapp, instrument, bio} = request.body
+        const {age, email, city, whatsapp, instrument, bio} = request.body
         const { musician_id } = request.params
 
         await connection('musician')
-        .update({email, city, whatsapp, instrument, bio})
+        .update({age, email, city, whatsapp, instrument, bio})
         .where({ musician_id })
 
         // fazer com que apenas o musicos possa alterar seu perfil, se ja nao foi isso
 
         return response.send()
+    },
+
+    // Vericar esta parte
+
+    async check (request,response){
+        
     }
+
+
 }

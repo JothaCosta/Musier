@@ -55,6 +55,10 @@ module.exports = {
         // verificar para apenas que o usuario/lider possa deletar
 
         return response.status(204).send()
+    },
+
+    async check (request,response){
+        
     }
     
 }
