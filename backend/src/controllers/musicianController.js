@@ -10,7 +10,6 @@ module.exports = {
         .offset((page - 1) * 5)
         .select('*')
 
-
         return response.json(musician);
     
     },
@@ -48,12 +47,15 @@ module.exports = {
 
         return response.send()
     },
+        // delete opcional,    
+    async delete(request, response){
+        const {musician_id} = request.params;
 
-    // Vericar esta parte
+        await connection('musician')
+        .where('musician_id',musician_id)
+        .delete();
 
-    async check (request,response){
-        
+        return response.status(204).send()
     }
-
-
+    
 }

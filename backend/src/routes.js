@@ -15,6 +15,7 @@ routes.post('/session', sessionController.create);
 routes.get('/musician', musicianController.list); 
 routes.post('/musician' ,musicianController.create);
 routes.put('/musician/:musician_id' ,musicianController.update);
+routes.delete('/musician/:musician_id' ,musicianController.delete);
 
 //routes band
 routes.get('/band', bandController.list);

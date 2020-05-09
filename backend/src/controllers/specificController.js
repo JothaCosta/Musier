@@ -5,9 +5,7 @@ module.exports = {
     async list (request, response){
         const {page = 1} = request.query;  
 
-        //const Guitarra = request.headers.specific;
-
-        const {instrument} = request.body;
+        const instrument = request.headers.specific;
 
         const specific = await connection('musician')
             .where('instrument', instrument)
@@ -17,6 +15,7 @@ module.exports = {
         
         return response.json(specific);
     }
+
 }
 
-//Melhorar codigo
+//Verificar codigo

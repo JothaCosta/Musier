@@ -6,9 +6,10 @@ module.exports = {
         const {page = 1} = request.query;  
 
         const band = await connection('band')
+        .join('musician', 'musician.musician_id', '=', 'band.musician_id')
         .limit(5)
         .offset((page - 1) * 5)
-        .select('*');
+        .select('band.*', 'musician.whatsapp','musician.email','musician.city');
         
         return response.json(band);
     },
@@ -55,12 +56,8 @@ module.exports = {
         // verificar para apenas que o usuario/lider possa deletar
 
         return response.status(204).send()
-    },
-
-    async check (request,response){
-        
     }
-    
+
 }
 
 

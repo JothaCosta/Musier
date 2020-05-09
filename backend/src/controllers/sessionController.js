@@ -1,11 +1,12 @@
 const connection = require('../database/connection');
 
 module.exports = {
+
     async create(request,response){
-        const  {email, password} = request.body;
+        const  { email , password } = request.body;
 
         const musician = await connection('musician')
-            .where('email', email)        // problemas no email e password sem ''
+            .where('email', email)        
             .andWhere('password', password)
             .select('musician_id')
             .first();
@@ -17,5 +18,3 @@ module.exports = {
         return response.json(musician);
     }
 }
-
-// Verificar codigo
