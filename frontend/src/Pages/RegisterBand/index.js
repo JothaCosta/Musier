@@ -25,7 +25,7 @@ export default function RegisterMusician() {
 
     try{
 
-      const response = await api.post('band',data)
+      await api.post('band',data)
 
       alert('Banda cadastrada com sucesso')
 

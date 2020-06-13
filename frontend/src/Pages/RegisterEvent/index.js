@@ -26,7 +26,7 @@ export default function RegisterEvent() {
 
     try{
 
-      const response = await api.post('event',data)
+      await api.post('event',data)
 
       alert('Evento cadastrado com sucesso')
 

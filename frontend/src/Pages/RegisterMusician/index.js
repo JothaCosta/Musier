@@ -35,7 +35,7 @@ export default function RegisterMusician() {
 
     try{
 
-      const response = await api.post('musician',data)
+     await api.post('musician',data)
 
       alert('Usuário cadastrado com sucesso')
 
