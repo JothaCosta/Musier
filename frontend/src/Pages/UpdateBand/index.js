@@ -1,6 +1,5 @@
 import React, {useState}from 'react';
 import {View, TextInput, Button} from 'react-native'
-import {useHistory} from 'react-router-dom';
 
 import api from '../../services/api'
 import styles from './styles';
@@ -11,8 +10,6 @@ export default function RegisterMusician() {
   const[name, setName] = useState('');
   const[style, setStyle] = useState('');
   const[bio, setbio] = useState('');
-
-  const history = useHistory();
 
   async function handleRegister(e){
     e.preventDefault();
@@ -29,7 +26,6 @@ export default function RegisterMusician() {
 
       alert('Banda cadastrada com sucesso')
 
-      history.push('/');
 
     }catch(err){
       alert('Erro no cadastro, tente novamente')

@@ -1,6 +1,5 @@
 import React, {useState}from 'react';
 import {View, TextInput, Button} from 'react-native'
-import {useHistory} from 'react-router-dom';
 
 import api from '../../services/api'
 import styles from './styles';
@@ -12,7 +11,6 @@ export default function RegisterEvent() {
   const[bio, setbio] = useState('');
   const[facebook, setFacebook] = useState('');
 
-  const history = useHistory();
 
   async function handleRegister(e){
     e.preventDefault();
@@ -30,7 +28,6 @@ export default function RegisterEvent() {
 
       alert('Evento cadastrado com sucesso')
 
-      history.push('/');
 
     }catch(err){
       alert('Erro no cadastro, tente novamente')
