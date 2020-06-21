@@ -1,25 +1,31 @@
 import React from 'react';
-import {View, TextInput, TouchableOpacity, Text, Image} from 'react-native'
 import {Feather} from '@expo/vector-icons'
+import {View, TextInput, TouchableOpacity, Text, Image} from 'react-native'
+
 
 //import api from '../../services/api'
 import styles from './styles';
 import perfil from '../../assets/Perfil.png'
 
-export default function RegisterEvent() {
 
+export default function Band() {
+  
   return ( 
     <View style={styles.container}>
-        <View style={styles.header}>
+      <View style={styles.header}>
         
         <TouchableOpacity style={styles.arrow} onPress={() => {}}>
           <Feather name='arrow-left' size={23} color='#fff'/>
         </TouchableOpacity>
 
-        <Text style={styles.registerevent}>Evento</Text>
+        <Text style={styles.registerband}>Banda</Text>
+
+        <TouchableOpacity style={styles.trash} onPress={() => {}}>
+          <Feather name='trash-2' size={23} color='#fff'/>
+        </TouchableOpacity>
         
       </View>
-
+      
       <TouchableOpacity style={styles.perfil}>
         <Image style={styles.imgperfil} source={perfil} />
       </TouchableOpacity>
@@ -27,17 +33,14 @@ export default function RegisterEvent() {
       <Text style={styles.nametext}>Nome</Text>
         <TextInput style={styles.name} placeholder='Nome'/>
 
-      <Text style={styles.citytext}>Cidade</Text>
-       <TextInput style={styles.city} placeholder='Cidade'/>
+      <Text style={styles.styletext}>Gênero Musical</Text>
+        <TextInput style={styles.style} placeholder='Gênero Musical'/>
 
       <Text style={styles.biotext}>Bio</Text>
-       <TextInput style={styles.bio} placeholder='Bio'/>
+        <TextInput style={styles.bio} placeholder='Bio'/>
 
-      <Text style={styles.linktext}>Facebbok Link</Text>
-       <TextInput style={styles.link} placeholder='Link '/>
-
-       <TouchableOpacity style={styles.btnpublish}>
-        <Text style={styles.btnPublishText}>Publicar</Text>
+      <TouchableOpacity style={styles.btnpublish}>
+        <Text style={styles.btnpublishText}>Publicar</Text>
       </TouchableOpacity>
 
     </View>

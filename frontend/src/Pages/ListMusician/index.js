@@ -1,46 +1,56 @@
 import React from 'react';
-import {View, FlatList, Linking} from 'react-native'
-import * as MailComposer from 'expo-mail-composer'
+import {View, TouchableOpacity, Text, Image} from 'react-native'
+import {Feather} from '@expo/vector-icons'
 
 import styles from './styles';
+import perfil from '../../assets/Perfillist.png'
+import whatsapp from '../../assets/whatsapp.png'
+import gmail from '../../assets/gmail.png'
 
 export default function ListMusician() {
 
-    const message = 'Olá nomeMusico gostaria de forma uma banda'
-
-    function sendMail(){
-        MailComposer.composeAsync({
-           subject:'', //Assunto 
-           recipients:[''], // para quem enviar
-           body: message,
-           
-        })
-    }
-
-    function sendWhatsapp(){
-        Linking.openURL(`whatsapp://send?phone=48996312800&text=${message}`)
-    }
-
 
   return ( 
-    <View style={styles.container}>
-        <View style={styles.hearder}>
+      <View style={styles.container}>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => {}}>
+                <Feather name='arrow-left' size={26} color='#fff' style={styles.arrow}/>
+            </TouchableOpacity>
 
-        </View>
+            <Text style={styles.musicianHeader}>Músicos</Text>
 
-        <FlatList 
-            data={[]}
-            style={styles.ListMusician}
-            keyExtractor={Musician => String(Musician)}
-            showsVerticalScrollIndicator={false}
-            renderItem={() =>       
-               
-                <View style={styles.Musician}>
+          </View>
 
-                </View>      
-            }
-        />
-  
-    </View>
+          <View style={styles.musicianList}>
+                <View style={styles.musician}>
+                    <View styles={styles.imgmuscian}>
+                        <Image style={styles.imgperfil} source={perfil}/>
+                    </View>
+                    <View styles={styles.infomuscian}>
+                        <Text style={styles.nametext}>Nome</Text>
+
+                        <Text style={styles.agetext}>Idade</Text>
+
+                        <Text style={styles.citytext}>Cidade</Text>
+
+                        <Text style={styles.instrumenttext}>Instrumento</Text>    
+                    
+                        <Text style={styles.biotext}>Bio</Text>
+                    </View>
+                    <View styles={styles.contactmuscian}>
+                        <TouchableOpacity onPress={() => {}}>
+                            <Image style={styles.whatsapp} source={whatsapp}/>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity onPress={() => {}}>
+                            <Image style={styles.gmail} source={gmail}/>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+          </View>
+
+      </View>
+    
    );
 }

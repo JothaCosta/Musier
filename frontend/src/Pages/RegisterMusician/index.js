@@ -1,107 +1,51 @@
-import React, {useState}from 'react';
-import {View, TextInput, Button} from 'react-native'
+import React from 'react';
+import {Feather} from '@expo/vector-icons'
+import {View, TextInput, TouchableOpacity, Text} from 'react-native'
 
 
-import api from '../../services/api'
+//import api from '../../services/api'
 import styles from './styles';
 
 
 export default function RegisterMusician() {
-
-  const[name, setName] = useState('');
-  const[age, setAge] = useState('');
-  const[email, setEmail] = useState('');
-  const[city, setCity] = useState('');
-  const[whatsapp, setWhatsapp] = useState('');
-  const[instrument, setInstrument] = useState('');
-  const[password, setPassword] = useState('');
-  const[bio, setbio] = useState('');
-
-
-  async function handleRegister(e){
-    e.preventDefault();
-
-    const data = {
-      name,
-      age,
-      email,
-      city,
-      whatsapp,
-      instrument,
-      password,
-      bio,
-    };
-
-    try{
-
-     await api.post('musician',data)
-
-      alert('Usuário cadastrado com sucesso')
-
-
-    }catch(err){
-      alert('Erro no cadastro, tente novamente')
-    
-    }
-
-  }
+  
   return ( 
     <View style={styles.container}>
-      <View onSubmit={handleRegister}>
-        <TextInput
-          placeholder='Nome'
-          value={name}
-          onChange={e => setName(e.target.value)}
-        
-        />
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => {}}>
+          <Feather name='arrow-left' size={26} color='#fff'/>
+        </TouchableOpacity>
 
-        <TextInput
-          placeholder='Idade'
-          value={age}
-          onChange={e => setAge(e.target.value)}
-        />
-
-        <TextInput
-          placeholder='email'
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-
-        <TextInput
-          placeholder='Cidade'
-          value={city}
-          onChange={e => setCity(e.target.value)}       
-        />
-
-        <TextInput
-          placeholder='Telefone'
-          value={whatsapp}
-          onChange={e => setWhatsapp(e.target.value)}
-        />
-
-        <TextInput
-          placeholder='Instrumento'
-          value={instrument}
-          onChange={e => setInstrument(e.target.value)}      
-        />
-
-        <TextInput
-          placeholder='Senha'
-          value={password}
-          onChange={e => setPassword(e.target.value)}       
-        />
-
-        <TextInput
-          placeholder='Bio'
-          value={bio}
-          onChange={e => setbio(e.target.value)}       
-        />
-
+        <Text style={styles.registerText}>Cadastrar</Text>
       </View>
 
-      <View>
-          <Button title='Cadastrar'/>
-      </View>
+      <Text style={styles.nametext}>Nome</Text>
+        <TextInput style={styles.name} placeholder='Nome'/>
+
+      <Text style={styles.agetext}>Idade</Text>
+        <TextInput style={styles.age} placeholder='Idade'/>
+
+      <Text style={styles.emailtext}>E-mail</Text>
+        <TextInput style={styles.email} placeholder='E-mail'/>
+
+      <Text style={styles.citytext}>Cidade</Text>
+       <TextInput style={styles.city} placeholder='Cidade'/>
+
+      <Text style={styles.whatsapptext}>Telefone</Text>
+       <TextInput style={styles.whatsapp} placeholder='Telefone'/>
+
+      <Text style={styles.instrumenttext}>Instrumento</Text>
+        <TextInput style={styles.instrument} placeholder='Instrumento'/>
+
+      <Text style={styles.passwordtext}>Senha</Text>
+        <TextInput style={styles.password} placeholder='Senha'/>
+
+      <Text style={styles.biotext}>Bio</Text>
+        <TextInput style={styles.bio} placeholder='Bio'/>
+
+      <TouchableOpacity style={styles.btnregister}>
+        <Text style={styles.btnRegisterText}>Cadastrar</Text>
+      </TouchableOpacity>
 
     </View>
   )
