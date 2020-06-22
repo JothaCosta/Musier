@@ -23,18 +23,16 @@ export default function ListMusician() {
 
           <View style={styles.musicianList}>
                 <View style={styles.musician}>
-                    <View styles={styles.imgmuscian}>
+                    <View styles={styles.imgmusician}>
                         <Image style={styles.imgperfil} source={perfil}/>
                     </View>
-                    <View styles={styles.infomuscian}>
-                        <Text style={styles.nametext}>Nome</Text>
+                    <View style={styles.infomusician}>
+                        <Text style={styles.nameAgeText}>Nome, Idade</Text>
 
-                        <Text style={styles.agetext}>Idade</Text>
+                        <Text style={styles.instrumenttext}>Instrumento</Text>    
 
                         <Text style={styles.citytext}>Cidade</Text>
 
-                        <Text style={styles.instrumenttext}>Instrumento</Text>    
-                    
                         <Text style={styles.biotext}>Bio</Text>
                     </View>
                     <View styles={styles.contactmuscian}>
@@ -46,8 +44,10 @@ export default function ListMusician() {
                             <Image style={styles.gmail} source={gmail}/>
                         </TouchableOpacity>
                     </View>
-
+                    
+                    
                 </View>
+                
           </View>
 
       </View>

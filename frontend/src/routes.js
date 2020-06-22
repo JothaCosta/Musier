@@ -19,6 +19,8 @@ export default function Routes(){
      return(
         <NavigationContainer>
             <AppStack.Navigator screenOptions={{headerShown: false}}>
+                <AppStack.Screen name="ListBand" component={ListBand}/>
+                <AppStack.Screen name="ListEvent" component={ListEvent}/>
                 <AppStack.Screen name="ListMusician" component={ListMusician}/>
                 <AppStack.Screen name="PerfilMusician" component={PerfilMusician}/> 
                 <AppStack.Screen name="Home" component={Home}/>
@@ -27,8 +29,6 @@ export default function Routes(){
                 <AppStack.Screen name="UpdateMusician" component={UpdateMusician}/>
                 <AppStack.Screen name="Login" component={Login}/>
                 <AppStack.Screen name="RegisterMusician" component={RegisterMusician}/>
-                <AppStack.Screen name="ListBand" component={ListBand}/>
-                <AppStack.Screen name="ListEvent" component={ListEvent}/>
 
             </AppStack.Navigator>
         </NavigationContainer>

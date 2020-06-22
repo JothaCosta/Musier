@@ -43,18 +43,34 @@ export default StyleSheet.create({
         flexDirection: 'row',
     },
 
-    infomusician:{
-        flexDirection: 'column',
+    imgperfil:{
+        marginLeft:10,
+        marginTop: 15
     },
 
-    nameText:{
-        flexDirection: 'row'
-    },  
+    infomusician:{
+        flexDirection:'column',
+        marginRight:50
+    },
 
-    ageText:{
-        flexDirection: 'row'
-    },  
+    nameAgeText:{
+        marginTop:5
+    },
+
+    citytext:{
+        marginTop: 5
+    },
+
+    instrumenttext:{
+        marginTop:5
+    },
+
+    biotext:{
+        marginTop:5,
+        marginBottom:10
+    },
     whatsapp:{
+        marginTop: 10,
         marginBottom: 20
     }
 })
