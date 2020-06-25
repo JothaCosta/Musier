@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, TouchableOpacity, Text, Image} from 'react-native'
+import {View, TouchableOpacity, Text, Image, FlatList} from 'react-native'
 import {Feather} from '@expo/vector-icons'
+import {useNavigation} from '@react-navigation/native'
 
 import styles from './styles';
 import perfil from '../../assets/Perfillist.png'
@@ -8,11 +9,17 @@ import perfil from '../../assets/Perfillist.png'
 
 export default function ListEvent() {
 
+    const navigation = useNavigation();
+
+
+    function navigationToHome (){
+        navigation.navigate('Home')
+    }
 
   return ( 
       <View style={styles.container}>
           <View style={styles.header}>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={navigationToHome}>
                 <Feather name='arrow-left' size={26} color='#fff' style={styles.arrow}/>
             </TouchableOpacity>
 
@@ -20,7 +27,12 @@ export default function ListEvent() {
 
           </View>
 
-          <View style={styles.eventList}>
+          <FlatList
+            data={[1,2,3]}
+            style={styles.eventList}
+            keyExtractor={event => String(event)}
+            showsVerticalScrollIndicator={false}
+            renderItem={() => (
                 <View style={styles.event}>
                     <View styles={styles.imgevent}>
                         <Image style={styles.imgperfil} source={perfil}/>
@@ -41,8 +53,9 @@ export default function ListEvent() {
                     
                     
                 </View>
-                
-          </View>
+            )}
+          
+          />
 
       </View>
     

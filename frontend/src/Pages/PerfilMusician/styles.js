@@ -37,7 +37,7 @@ export default StyleSheet.create({
     },
 
     imgperfil:{
-            marginTop:35,
+            marginTop:15,
             alignSelf: 'center'
     },
 
@@ -87,13 +87,31 @@ export default StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: '#e02041',
         borderRadius: 8,
-        marginTop: 45,
+        marginTop: 35,
         justifyContent: 'center',
         alignItems: 'center',
         
     },
 
     btnBandText:{
+        color:'#fff',
+        fontSize:15,
+        fontWeight: 'bold'
+    },
+
+    btnevent:{
+        height: 45,
+        width:230,
+        alignSelf: 'center',
+        backgroundColor: '#e02041',
+        borderRadius: 8,
+        marginTop: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+
+    btnEventText:{
         color:'#fff',
         fontSize:15,
         fontWeight: 'bold'

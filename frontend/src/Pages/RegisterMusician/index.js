@@ -1,6 +1,7 @@
 import React from 'react';
 import {Feather} from '@expo/vector-icons'
 import {View, TextInput, TouchableOpacity, Text} from 'react-native'
+import {useNavigation} from '@react-navigation/native'
 
 
 //import api from '../../services/api'
@@ -8,11 +9,17 @@ import styles from './styles';
 
 
 export default function RegisterMusician() {
+
+  const navigation = useNavigation();
+
+  function navigateToLogin(){
+      navigation.navigate('Login')
+  }
   
   return ( 
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={navigateToLogin}>
           <Feather name='arrow-left' size={26} color='#fff'/>
         </TouchableOpacity>
 
@@ -43,7 +50,7 @@ export default function RegisterMusician() {
       <Text style={styles.biotext}>Bio</Text>
         <TextInput style={styles.bio} placeholder='Bio'/>
 
-      <TouchableOpacity style={styles.btnregister}>
+      <TouchableOpacity style={styles.btnregister} onPress={navigateToLogin}>
         <Text style={styles.btnRegisterText}>Cadastrar</Text>
       </TouchableOpacity>
 
