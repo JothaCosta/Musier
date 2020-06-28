@@ -1,4 +1,5 @@
 const connection = require('../database/connection');
+const { select } = require('../database/connection');
 
 module.exports = {
 
@@ -37,9 +38,10 @@ module.exports = {
 
     async update (request,response){
         const {age, email, city, whatsapp, instrument, bio} = request.body
-        const { musician_id } = request.params
+        const  musician_id  = request.headers.authorization
 
         await connection('musician')
+        .where('musician_id', musician_id)
         .update({age, email, city, whatsapp, instrument, bio})
         .where({ musician_id })
 
@@ -56,6 +58,16 @@ module.exports = {
         .delete();
 
         return response.status(204).send()
-    }
+    },
     
+    async unique(request, response){
+        const musician_id = request.headers.authorization
+
+        const musician = await connection('musician')
+        .where('musician_id',musician_id)
+        .select('*')
+        .first();
+
+        return response.json(musician)
+    }
 }

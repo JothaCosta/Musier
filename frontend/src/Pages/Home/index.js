@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Image, Text} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import {Feather} from '@expo/vector-icons'
 import {useNavigation} from '@react-navigation/native'
 
@@ -15,7 +16,10 @@ export default function Home(){
 
     const navigation = useNavigation();
 
-    function navigateToLogin(){
+    async function navigateToLogin(){
+
+        await AsyncStorage.clear()
+
         navigation.navigate('Login')
     }
 

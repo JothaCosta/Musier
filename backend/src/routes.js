@@ -13,8 +13,9 @@ routes.post('/session', sessionController.create);
 
 // routes musician
 routes.get('/musician', musicianController.list); 
+routes.get('/musician/perfil', musicianController.unique); 
 routes.post('/musician' ,musicianController.create);
-routes.put('/musician/:musician_id' ,musicianController.update);
+routes.put('/musician' ,musicianController.update);
 routes.delete('/musician/:musician_id' ,musicianController.delete);
 
 //routes band
@@ -26,6 +27,7 @@ routes.delete('/band/:id' ,bandController.delete);
 //routes event
 routes.get('/event', eventController.list);
 routes.post('/event', eventController.create);
+routes.delete('/event/:id', eventController.delete);
 
 //reoutes listSpecific
 routes.get('/specific', specificController.list);

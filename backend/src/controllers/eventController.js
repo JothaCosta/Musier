@@ -25,6 +25,16 @@ module.exports = {
         });
 
         return response.json({name, city, bio, facebook});
+    },
+
+    async delete(request, response){
+        const {id} = request.params;
+
+        await connection('event')
+        .where('id',id)
+        .delete();
+
+        return response.status(204).send()
     }
 
 }
