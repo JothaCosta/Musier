@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Feather} from '@expo/vector-icons'
-import {View, TextInput, TouchableOpacity, Text, Image} from 'react-native'
+import {View, TextInput, TouchableOpacity, Text, Image,KeyboardAvoidingView, Platform, ScrollView} from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native';
 
@@ -39,7 +39,7 @@ export default function Band() {
   }  
   
   return ( 
-    <View style={styles.container}>
+    <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
       <View style={styles.header}>
         
         <TouchableOpacity style={styles.arrow} onPress={navigateToPerfilMusicianReturn}>
@@ -54,6 +54,7 @@ export default function Band() {
         
       </View>
       
+      <ScrollView showsVerticalScrollIndicator={false}>
       <TouchableOpacity style={styles.perfil}>
         <Image style={styles.imgperfil} source={perfil} />
       </TouchableOpacity>
@@ -82,7 +83,7 @@ export default function Band() {
       <TouchableOpacity style={styles.btnpublish} onPress={navigateToPerfilMusician}>
         <Text style={styles.btnpublishText}>Publicar</Text>
       </TouchableOpacity>
-
-    </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   )
 }

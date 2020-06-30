@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, TextInput, TouchableOpacity, Image, Text} from 'react-native'
+import React, {useState, useEffect} from 'react';
+import {View, TextInput, TouchableOpacity, Image, Text, KeyboardAvoidingView} from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import {useNavigation} from '@react-navigation/native'
 
@@ -15,14 +15,14 @@ export default function Login(){
 
     const navigation = useNavigation();
 
-    /*useEffect(() =>{
+    useEffect(() =>{
         AsyncStorage.getItem('user').then(user => {
             if(user) {
                 navigation.navigate('Home',{ user })
             }
         })
         
-    })*/
+    })
    
 
     async function navigationToHome(){
@@ -47,7 +47,7 @@ export default function Login(){
 
     return(
 
-            <View style={styles.container}>
+            <KeyboardAvoidingView behavior='padding' style={styles.container}>
                 <View style={styles.header}>
                     <Image source={logoImg}/>
                 </View>
@@ -75,7 +75,7 @@ export default function Login(){
                     <Text style={styles.btnRegisterText}>Cadastrar</Text>
                 </TouchableOpacity>
 
-            </View>
+            </KeyboardAvoidingView>
         
         )
     }

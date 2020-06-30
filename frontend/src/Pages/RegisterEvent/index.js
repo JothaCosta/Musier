@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TextInput, TouchableOpacity, Text, Image} from 'react-native'
+import {View, TextInput, TouchableOpacity, Text, Image, KeyboardAvoidingView, Platform, ScrollView} from 'react-native'
 import {Feather} from '@expo/vector-icons'
 import {useNavigation} from '@react-navigation/native'
 
@@ -33,7 +33,7 @@ export default function RegisterEvent() {
   }
 
   return ( 
-    <View style={styles.container}>
+    <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
         <View style={styles.header}>
         
         <TouchableOpacity style={styles.arrow} onPress={navigateToPerfilMusicianReturn}>
@@ -42,44 +42,44 @@ export default function RegisterEvent() {
 
         <Text style={styles.registerevent}>Evento</Text>
         
-      </View>
+      </View> 
+      <ScrollView behavior={Platform.OS == "ios" ? "padding" : "height"}>
+        <TouchableOpacity style={styles.perfil}>
+          <Image style={styles.imgperfil} source={perfil} />
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.perfil}>
-        <Image style={styles.imgperfil} source={perfil} />
-      </TouchableOpacity>
+        <Text style={styles.nametext}>Nome</Text>
+        <TextInput 
+          style={styles.name} 
+          placeholder='Nome'
+          value={name}
+          onChangeText={setName}/>
 
-      <Text style={styles.nametext}>Nome</Text>
-       <TextInput 
-        style={styles.name} 
-        placeholder='Nome'
-        value={name}
-        onChangeText={setName}/>
+        <Text style={styles.citytext}>Cidade</Text>
+        <TextInput 
+          style={styles.city} 
+          placeholder='Cidade'
+          value={city}
+          onChangeText={setCity}/>
 
-      <Text style={styles.citytext}>Cidade</Text>
-       <TextInput 
-        style={styles.city} 
-        placeholder='Cidade'
-        value={city}
-        onChangeText={setCity}/>
+        <Text style={styles.biotext}>Bio</Text>
+        <TextInput 
+          style={styles.bio} 
+          placeholder='Bio'
+          value={bio}
+          onChangeText={setBio}/>
 
-      <Text style={styles.biotext}>Bio</Text>
-       <TextInput 
-        style={styles.bio} 
-        placeholder='Bio'
-        value={bio}
-        onChangeText={setBio}/>
+        <Text style={styles.linktext}>Facebook Link</Text>
+        <TextInput 
+          style={styles.link} 
+          placeholder='Link'
+          value={facebook}
+          onChangeText={setFacebook}/>
 
-      <Text style={styles.linktext}>Facebook Link</Text>
-       <TextInput 
-        style={styles.link} 
-        placeholder='Link'
-        value={facebook}
-        onChangeText={setFacebook}/>
-
-       <TouchableOpacity style={styles.btnpublish} onPress={navigateToPerfilMusician}>
-        <Text style={styles.btnPublishText}>Publicar</Text>
-      </TouchableOpacity>
-
-    </View>
+        <TouchableOpacity style={styles.btnpublish} onPress={navigateToPerfilMusician}>
+          <Text style={styles.btnPublishText}>Publicar</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </KeyboardAvoidingView>
   )
 }

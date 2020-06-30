@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {Feather} from '@expo/vector-icons'
-import {View, TextInput, TouchableOpacity, Text} from 'react-native'
+import {View, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Platform, ScrollView} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
 import api from '../../services/api'
@@ -40,7 +40,7 @@ export default function RegisterMusician() {
   }
   
   return ( 
-    <View style={styles.container}>
+    <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={navigateToLoginReturn}>
           <Feather name='arrow-left' size={26} color='#fff'/>
@@ -48,7 +48,7 @@ export default function RegisterMusician() {
 
         <Text style={styles.registerText}>Cadastrar</Text>
       </View>
-
+    <ScrollView showsVerticalScrollIndicator={false}>
       <Text style={styles.nametext}>Nome</Text>
         <TextInput 
           style={styles.name} 
@@ -106,11 +106,11 @@ export default function RegisterMusician() {
           placeholder='Bio'
           value={bio}
           onChangeText={setBio}/>
-
       <TouchableOpacity style={styles.btnregister} onPress={navigateToLogin}>
         <Text style={styles.btnRegisterText}>Cadastrar</Text>
       </TouchableOpacity>
+    </ScrollView>
 
-    </View>
+    </KeyboardAvoidingView>
   )
 }
