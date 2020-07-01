@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {Feather} from '@expo/vector-icons'
 import {View, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, ScrollView, Platform} from 'react-native'
-//import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage'
 import {useNavigation} from '@react-navigation/native'
 
-//import api from '../../services/api'
+import api from '../../services/api'
 
 import styles from './styles';
 
@@ -24,6 +24,50 @@ export default function RegisterMusician() {
   }
 
   async function navigateToPerfil(){
+
+    const id = await AsyncStorage.getItem('id')
+
+    if(email != ''){
+      await api.put('/musician', {email},{
+        headers:{
+           authorization: id 
+        }
+    })
+    }
+
+    if(city != ''){
+      await api.put('/musician', {city},{
+        headers:{
+           authorization: id 
+        }
+    })
+      
+    }
+
+    if(whatsapp != ''){
+      await api.put('/musician', {whatsapp},{
+        headers:{
+           authorization: id 
+        }
+    })
+    }
+
+    if(instrument != ''){
+      await api.put('/musician', {instrument},{
+        headers:{
+           authorization: id 
+        }
+    })
+      
+    }
+
+    if(bio != ''){
+      await api.put('/musician', {bio},{
+        headers:{
+           authorization: id 
+        }
+    })
+    }
 
     navigation.navigate('PerfilMusician')
        

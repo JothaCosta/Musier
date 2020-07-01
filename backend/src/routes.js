@@ -22,7 +22,7 @@ routes.delete('/musician/:musician_id' ,musicianController.delete);
 routes.get('/band', bandController.list);
 routes.post('/band' ,bandController.create);
 routes.put('/band/:id' ,bandController.update);
-routes.delete('/band/:id' ,bandController.delete);
+routes.delete('/band' ,bandController.delete);
 
 //routes event
 routes.get('/event', eventController.list);

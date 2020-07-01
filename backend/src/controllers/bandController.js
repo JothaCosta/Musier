@@ -47,10 +47,10 @@ module.exports = {
     },
 
     async delete(request, response){
-        const {id} = request.params;
+        const musician_id = request.headers.authorization;
 
         await connection('band')
-        .where('id',id)
+        .where('musician_id', musician_id)
         .delete();
 
         // verificar para apenas que o usuario/lider possa deletar

@@ -37,6 +37,16 @@ export default function Band() {
       navigation.navigate('PerfilMusician')
     } 
   }  
+
+  async function deleteAllBands(){
+    const id = await AsyncStorage.getItem('id')
+    await api.delete('/band',{
+      headers:{
+         authorization: id 
+      }
+  })
+    alert('Bandas deletadas com sucesso')
+  }
   
   return ( 
     <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
@@ -48,7 +58,7 @@ export default function Band() {
 
         <Text style={styles.registerband}>Banda</Text>
 
-        <TouchableOpacity style={styles.trash} onPress={() => {}}>
+        <TouchableOpacity style={styles.trash} onPress={deleteAllBands}>
           <Feather name='trash-2' size={23} color='#fff'/>
         </TouchableOpacity>
         
