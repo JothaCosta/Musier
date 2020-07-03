@@ -18,7 +18,7 @@ export default function ListMusician() {
     const [loading, setLoading] = useState(false)
 
     const navigation = useNavigation();
-    const message = 'mensagem'
+    const message = 'OI'
 
 
     function navigationToHome(){
@@ -26,6 +26,7 @@ export default function ListMusician() {
     }
 
     async function loadMusician(){
+
         if(loading){
             return;
         }    
@@ -35,6 +36,7 @@ export default function ListMusician() {
         const response = await api.get('/musician',{
             params:{page}
         })
+
 
         setMusicians([...musicians,...response.data])
         setPage(page + 1)
@@ -87,7 +89,7 @@ export default function ListMusician() {
 
                         <TouchableOpacity onPress={() => {
                                 MailComposer.composeAsync({
-                                subject:'assunto',
+                                subject:'Musier',
                                 recipients:[musician.email],
                                 body:message
                             })
